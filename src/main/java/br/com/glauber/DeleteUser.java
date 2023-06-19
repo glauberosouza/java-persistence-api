@@ -14,7 +14,6 @@ public class DeleteUser {
         if (user == null){
             System.out.println("Usuário não encontrado!");
         }
-
         entityManager.getTransaction().begin();
         entityManager.remove(user);
         entityManager.getTransaction().commit();
