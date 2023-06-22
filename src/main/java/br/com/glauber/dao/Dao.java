@@ -34,7 +34,14 @@ public class Dao<T> {
         return commitTransaction();
     }
 
+    public T getById(Object id) {
+        return entityManager.find(classz, id);
+    }
+
     public List<T> getAll(int qtdRegistros, int offSet) {
+        if (classz == null) {
+            throw new IllegalArgumentException("Classe de retorno nulla!");
+        }
         var jpql = "SELECT e FROM " + classz.getName() + " e";
         var query = entityManager.createQuery(jpql, classz);
         query.setMaxResults(qtdRegistros).setFirstResult(offSet);
