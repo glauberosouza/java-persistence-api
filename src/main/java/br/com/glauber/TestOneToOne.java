@@ -6,7 +6,7 @@ import br.com.glauber.model.ZionCode;
 
 import java.util.UUID;
 
-public class TesteOneToOne {
+public class TestOneToOne {
     public static void main(String[] args) {
         var zionCode = new ZionCode(UUID.randomUUID().toString());
         var captain = new Captain("Akira", zionCode);

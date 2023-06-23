@@ -9,12 +9,12 @@ public class ZionCode {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idt;
     private String code;
+    @OneToOne(mappedBy = "zionCode")
+    private Captain captain;
 
     public ZionCode() {
     }
 
-    @OneToOne(mappedBy = "zionCode")
-    private Captain captain;
 
     public ZionCode(String code) {
         this.code = code;

@@ -9,6 +9,8 @@
         <class>br.com.glauber.model.Product</class>
         <class>br.com.glauber.model.Captain</class>
         <class>br.com.glauber.model.ZionCode</class>
+        <class>br.com.glauber.model.Purchase</class>
+        <class>br.com.glauber.model.PurchaseItem</class>
         <properties>
             <property name="javax.persistence.jdbc.driver"
                       value="com.mysql.jdbc.Driver"/>
