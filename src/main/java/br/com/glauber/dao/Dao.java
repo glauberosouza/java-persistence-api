@@ -3,6 +3,7 @@ package br.com.glauber.dao;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 public class Dao<T> {
@@ -56,6 +57,18 @@ public class Dao<T> {
     public Dao<T> commitTransaction() {
         entityManager.getTransaction().commit();
         return this;
+    }
+
+    public List<T> getNameAs(String queryName, Object...args){
+        TypedQuery<T> query = entityManager.createNamedQuery(queryName,classz);
+        for(var i=0; i<args.length; i+=2){
+            query.setParameter(args[i].toString(),args[i+1]);
+        }
+        return query.getResultList();
+    }
+    public T getTotalNative(String nativeQueryName) {
+        TypedQuery<T> query = entityManager.createNamedQuery(nativeQueryName, classz);
+        return query.getSingleResult();
     }
 
     public void close() {

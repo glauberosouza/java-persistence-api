@@ -5,12 +5,16 @@
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
     <persistence-unit name="jpa-exercises">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <mapping-file>META-INF/named-queries.xml</mapping-file>
+
         <class>br.com.glauber.model.User</class>
         <class>br.com.glauber.model.Product</class>
         <class>br.com.glauber.model.Captain</class>
         <class>br.com.glauber.model.ZionCode</class>
         <class>br.com.glauber.model.Purchase</class>
         <class>br.com.glauber.model.PurchaseItem</class>
+        <class>br.com.glauber.model.Uncle</class>
+        <class>br.com.glauber.model.Nephew</class>
         <properties>
             <property name="javax.persistence.jdbc.driver"
                       value="com.mysql.jdbc.Driver"/>

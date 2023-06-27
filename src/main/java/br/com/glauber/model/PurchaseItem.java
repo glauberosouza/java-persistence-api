@@ -14,6 +14,7 @@ public class PurchaseItem {
     @JoinColumn(name = "idt_purchase")
     private Purchase purchase;
     @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "idt_product")
     private Product product;
 
     public PurchaseItem() {

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence/orm"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence/orm http://xmlns.jcp.org/xml/ns/persistence/orm_2_1.xsd">
+
+    <description>All Named Queries</description>
+
+    <named-query name="getUncleByName">
+        <query>
+            SELECT DISTINCT u FROM Uncle u
+            JOIN FETCH u.nephews
+            WHERE u.name = :name
+        </query>
+    </named-query>
+
+    <named-native-query name="countSales" result-set-mapping="totalSales">
+        <query>
+            SELECT sum(price * quantity) as Total FROM jpa.purchase_item;
+        </query>
+    </named-native-query>
+
+    <sql-result-set-mapping name="totalSales">
+        <constructor-result target-class="br.com.glauber.TotalSales">
+            <column name="total" class="java.lang.Double"/>
+        </constructor-result>
+    </sql-result-set-mapping>
+
+</entity-mappings>
+

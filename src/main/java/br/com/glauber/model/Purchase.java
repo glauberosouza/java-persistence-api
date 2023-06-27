@@ -10,7 +10,7 @@ public class Purchase {
     private long idt;
     private String createdAt;
     @OneToMany(mappedBy = "purchase")
-    private List<PurchaseItem> purchaseItens;
+    private List<PurchaseItem> purchaseItems;
 
     public Purchase() {
     }
